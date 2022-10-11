@@ -15,12 +15,12 @@ const refs = {
 
 refs.text.style.fontSize = refs.slider.value + `px`;
 
-console.log(refs.text.style.fontSize);
+
 
 refs.slider.addEventListener('input', onSliderChange);
 
 function onSliderChange(event) {
     refs.text.style.fontSize = `${event.currentTarget.value}px`;
-    console.log('в динамике', refs.text.style.fontSize);
+  
 
 }
