@@ -10,8 +10,8 @@ function onFormSubmit(event) {
   } = event.currentTarget;
 
     if (email.value === "" || password.value === "") {
-        return console.log("Обидва поля мають бути заповнені для входу!");
-
+        // return console.log("Обидва поля мають бути заповнені для входу!");
+        alert("Обидва поля мають бути заповнені для входу!");
     } 
 
   console.log(`Email: ${email.value}, Password: ${password.value}`);
