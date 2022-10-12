@@ -1,24 +1,39 @@
-const refs = {
-  boxesforEl: document.querySelector('#boxes'),
-  amountEl: document.querySelector('#controls input'),
-  btnCreate: document.querySelector('[data-create]'),
-  btnDestroy: document.querySelector('[data-destroy]'),
+
+const boxesEl = document.querySelector('#boxes');
+boxesEl.classList.add("js-gallery");
+
+const amountEl = document.querySelector('#controls input');
+const btnCreate = document.querySelector("[data-create]");
+const btnDestroy = document.querySelector("[data-destroy]");
+
+
+btnCreate.addEventListener('click', createBoxes);
+btnDestroy.addEventListener('click', destroyBoxes);
+
+
+const markup = [];
+
+  
+function createBoxes() {
+  for (let i = 0; i < amountEl.value; i += 1){
+  const marckupEl = `<div style="background-color: ${getRandomHexColor()};
+  width: ${i * 10 + 30}px; height: ${i * 10 + 30}px"></div>`;
+    
+  
+    markup.push(marckupEl);
+  };
+  
+  boxesEl.innerHTML = markup.join('');
+  markup.splice(0, amountEl.value);
+  
 }
 
-// refs.btnCreate.addEventListener('click', createBoxes);
-// refs.btnDestroy.addEventListener('click', destroyBoxes);
+function destroyBoxes() {
+  boxesEl.innerHTML='';
 
-refs.amountEl.addEventListener('input', event => {
-  
-  const amount = event.currentTarget.value;
-  refs.amountEl = amount;
-  
-});
-
-
-console.log(refs.amountEl);
-
+}
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
+
