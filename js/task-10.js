@@ -24,12 +24,13 @@ function createBoxes() {
   };
   
   boxesEl.innerHTML = markup.join('');
-  markup.splice(0, amountEl.value);
+  // markup.splice(0, amountEl.value);
   
 }
 
 function destroyBoxes() {
-  boxesEl.innerHTML='';
+  boxesEl.innerHTML = '';
+  amountEl.value = '';
 
 }
 
