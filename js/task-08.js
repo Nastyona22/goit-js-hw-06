@@ -9,11 +9,12 @@ function onFormSubmit(event) {
     elements: { email, password }
   } = event.currentTarget;
 
-    if (email.value === "" || password.value === "") {
-        // return console.log("Обидва поля мають бути заповнені для входу!");
-        alert("Обидва поля мають бути заповнені для входу!");
-    } 
-
-  console.log(`Email: ${email.value}, Password: ${password.value}`);
-  event.currentTarget.reset();
+ 
+  if (email.value !== "" && password.value !== "") {
+    console.log(`Email: ${email.value}, Password: ${password.value}`);
+    event.currentTarget.reset();
+  } else {
+    alert("Обидва поля мають бути заповнені для входу!");
+    }
+  
 }
